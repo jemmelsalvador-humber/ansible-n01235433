@@ -40,4 +40,8 @@ terraform_logs/
 # Ignore earlier labs
 lab**/
 
+# Ignore senstive files
 **/.terraform.lock.hcl
+
+# Ignore assignment
+**/assignment1-01235433
