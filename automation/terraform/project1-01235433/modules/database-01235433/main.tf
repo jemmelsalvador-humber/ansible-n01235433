@@ -17,7 +17,7 @@ resource "azurerm_postgresql_database" "n01235433-PGSQLDB" {
   charset             = var.db_charset
   collation           = var.db_collation
   # prevent the possibility of accidental data loss
-  lifecycle {
-    prevent_destroy = true
-  }
+  #lifecycle {
+  #  prevent_destroy = true
+  #}
 }

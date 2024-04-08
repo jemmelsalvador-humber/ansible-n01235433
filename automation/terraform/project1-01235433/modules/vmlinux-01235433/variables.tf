@@ -1,9 +1,9 @@
 locals {
   common_tags = {
-    Assignment     = "CCGC 5502 Automation Assignment"
+    Assignment     = "CCGC 5502 Automation Project"
     Name           = "Jemmel.Salvador"
     ExpirationDate = "2024-12-31"
-    Environment    = "Learning"
+    Environment    = "Project"
   }
 }
 variable "rg_name" {}
@@ -30,3 +30,4 @@ variable "am_pub" {}
 variable "am_type" {}
 variable "am_type_hand" {}
 variable "subnet_id" {}
+variable "datadisk_attach" {}

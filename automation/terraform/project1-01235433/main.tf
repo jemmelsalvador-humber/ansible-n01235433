@@ -28,14 +28,12 @@ module "vmlinux-01235433" {
   avs_linux            = "n01235433-AVSLINUX"
   size_linux           = "Standard_B1ms"
   admin_username_linux = "n01235433"
-  //public_key           = "C:\\Users\\cutbr\\.ssh\\id_rsa.pub"
-  //priv_key             = "C:\\Users\\cutbr\\.ssh\\id_rsa"
-  public_key = "id_rsa.pub"
-  priv_key   = "id_rsa"
+  public_key = "~/id_rsa.pub"
+  priv_key   = "~/id_rsa"
   vm_linux_name = {
-    n01235433-vmlinux1 = ""
-    n01235433-vmlinux2 = ""
-    n01235433-vmlinux3 = ""
+    n01235433-l-vm1 = ""
+    n01235433-l-vm2 = ""
+    n01235433-l-vm3 = ""
   }
   os_disk_attr_linux = {
     storage_acct_type = "Premium_LRS"
@@ -43,10 +41,6 @@ module "vmlinux-01235433" {
     caching           = "ReadWrite"
   }
   os_info_linux = {
-    //publisher = "Canonical"
-    //offer     = "0001-com-ubuntu-server-jammy"
-    //sku       = "22_04-lts"
-    //version   = "latest"
     publisher = "cognosys"
     offer     = "centos-8-2-free"
     sku       = "centos-8-2-free"
@@ -60,6 +54,7 @@ module "vmlinux-01235433" {
   am_type          = "AzureMonitorLinuxAgent"
   am_type_hand     = "1.9"
   subnet_id        = module.network-01235433.subnet_output.id
+  datadisk_attach  = module.datadisk-01235433.datadisk_attach_output
 }
 module "vmwindows-01235433" {
   source      = "./modules/vmwindows-01235433"
@@ -103,6 +98,7 @@ module "loadbalancer-01235433" {
   rg_name          = module.rgroup-01235433.rg_output.name
   location         = module.rgroup-01235433.rg_output.location
   vm_linux_nic_ids = module.vmlinux-01235433.vm_linux_nic_ids_output
+  dns_label        = "project5433"
 }
 module "database-01235433" {
   source                     = "./modules/database-01235433"
